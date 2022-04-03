@@ -10,7 +10,7 @@ body {
     padding-left: 0;
 }
 
-@media screen and (min-width: 850px) {
+@media all and (min-width: 50em) {
     #container {
         display: grid;
         grid-template-columns: repeat(8, 1fr);
@@ -58,7 +58,7 @@ body {
 }
 
 #posts {
-    max-width: 750px;
+    max-width: 37em;
     margin: auto;
 }
 

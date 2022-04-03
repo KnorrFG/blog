@@ -132,8 +132,17 @@ def md_2_html(s):
 def make_dist(dist_dir: Path):
     dist_dir.mkdir(parents=True, exist_ok=True)
     (dist_dir / 'posts').mkdir(parents=True, exist_ok=True)
-    for file in files_to_watch:
-        dist_path(dist_dir, file)
+
+    render_index(dist_dir)
+
+    for path in Path().iterdir():
+        if path.is_dir():
+            shutil.copytree(path, dist_dir/path, dirs_exist_ok=True)
+        if path.is_file() and path.suffix == ".css":
+            shutil.copy(path, dist_dir / path)
+
+    for path in Path().glob("posts/*.md"):
+        render_article(dist_dir, path)
         
 
 if __name__ == "__main__":
