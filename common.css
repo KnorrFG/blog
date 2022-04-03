@@ -1,6 +1,6 @@
 body {
     line-height: 1.4;
-    font-size: 18px;
+    font-size: 125%;
     color: #080808;
 }
 
@@ -19,6 +19,10 @@ body {
     vertical-align: middle;
 }
 
+img {
+    width: 100%;
+}
+
 #heading > h1{
     display: inline-block;
     font-size: 40px;
@@ -27,6 +31,7 @@ body {
 #heading img {
     padding-right: 10px;
     vertical-align: middle;
+    width: 100px;
 }
 
 .date {
@@ -34,3 +39,4 @@ body {
     font-style: italic;
     font-size: 14px;
 }
+

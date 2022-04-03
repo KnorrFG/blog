@@ -1,3 +1,7 @@
+body {
+    padding-bottom: 100px !important;
+}
+
 #heading {
     padding-top: 20px;
     width: 100%;
@@ -36,7 +40,7 @@
 }
 .authors {
     font-style: italic;
-    font-size: 16px;
+    font-size: 100%;
 }
 
 #publications > ul > li > p {
@@ -61,8 +65,5 @@
 .post h2 {
     margin-top: 60px;
     margin-bottom: 10px;
-}
-
-.post p {
 }
 
