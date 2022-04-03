@@ -1,0 +1,11 @@
+#post {
+    max-width: 750px;
+    margin: auto;
+}
+
+#heading {
+    position: sticky;
+    padding-top: 20px;
+    margin-top: 0;
+    top: 0;
+}

@@ -1,0 +1,36 @@
+body {
+    line-height: 1.4;
+    font-size: 18px;
+    color: #080808;
+}
+
+.with_bg {
+    background: #FAFAFA;
+}
+
+.body_dims {
+    margin: auto;
+    max-width: 900px;
+    padding: 20px;
+    padding-top: 0;
+}
+
+.heading {
+    vertical-align: middle;
+}
+
+#heading > h1{
+    display: inline-block;
+    font-size: 40px;
+}
+
+#heading img {
+    padding-right: 10px;
+    vertical-align: middle;
+}
+
+.date {
+    margin-top: 0;
+    font-style: italic;
+    font-size: 14px;
+}

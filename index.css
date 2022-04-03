@@ -1,0 +1,68 @@
+#heading {
+    padding-top: 20px;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+}
+
+#media screen and (min-width: 900px) {
+    #container {
+        display: grid;
+        grid-template-columns: repeat(8, 1fr);
+        gap: 30px;
+    }
+
+    #about {
+        grid-column: 1 / 5;
+    }
+
+    #portrait {
+        grid-column: 5 / 9;
+        padding-top: 30px;
+    }
+
+    #projects {
+        grid-column: 1 / 5;
+    }
+
+    #publications {
+        grid-column: 5 / 9;
+    }
+}
+
+#portrait {
+    width: 100%;
+}
+.authors {
+    font-style: italic;
+    font-size: 16px;
+}
+
+#publications > ul > li > p {
+    margin: 5px;
+}
+
+#blogh2 {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.titleLink {
+    text-decoration: none;
+    color: #080808;
+}
+
+#posts {
+    max-width: 750px;
+    margin: auto;
+}
+
+.post h2 {
+    margin-top: 60px;
+    margin-bottom: 10px;
+}
+
+.post p {
+}
+

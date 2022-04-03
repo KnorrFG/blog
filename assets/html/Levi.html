@@ -1,0 +1,997 @@
+<html>
+  <head>
+    <title>Levi</title>
+    <meta charset="UTF-8" />
+    <style>/*
+ * I add this to html files generated with pandoc.
+ */
+
+html {
+  font-size: 100%;
+  overflow-y: scroll;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+body {
+  color: #444;
+  font-family: Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman', serif;
+  font-size: 12px;
+  line-height: 1.7;
+  padding: 1em;
+  margin: auto;
+  max-width: 70em;
+  background: #fefefe;
+  display: flex;
+}
+
+#toc{
+    position: sticky;
+    top: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 96%;
+    padding: 0.5em;
+    margin: 0.5em;
+    flex-shrink: 0;
+}
+
+#toc a{
+    text-decoration:none;
+    white-space: nowrap;
+    color:rgb(1, 1, 5);
+    font-weight: bold;
+}
+
+#toc_header{
+    font-weight: bold;
+    padding-bottom: 1em;
+}
+
+#toc a:visited{
+    color:rgb(1, 1, 5);
+}
+
+#container {
+    top: 0;
+    /* margin-left: 15em; */
+    margin-right: auto;
+    max-width: 50em;
+    border-radius: 0.5em;
+    /* padding: 0.5em; */
+    padding-left: 1em;
+}
+
+.HLayout {
+    display: flex;
+    align-items: stretch;
+}
+
+.HLayout > div{
+  margin-left: 1em;
+  flex-grow: 1;
+  flex-shrink: 1;
+}
+
+.HLayout > div:first-child {
+  margin-left: 0
+}
+
+.VLayout {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+.VLayout > div{
+  margin-top: 1em
+}
+
+.VLayout > div:first-child {
+  margin-top: 0
+}
+/* .entry{
+    overflow-x: auto;
+} */
+
+.entry img {
+    max-width:100%;
+    height: auto;
+}
+
+div.indexindent_1{
+    text-indent: 0em;
+}
+
+div.indexindent_2{
+    text-indent: 0.5em;
+}
+
+div.indexindent_3{
+    text-indent: 1em;
+}
+
+div.indexindent_4{
+    text-indent: 1.5em;
+}
+
+div.indexindent_5{
+    text-indent: 2em;
+}
+
+div.indexindent_6{
+    text-indent: 2.5em;
+}
+
+a {
+  color: #0645ad;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #0b0080;
+}
+
+a:hover {
+  color: #06e;
+}
+
+a:active {
+  color: #faa700;
+}
+
+a:focus {
+  outline: thin dotted;
+}
+
+*::-moz-selection {
+  background: rgba(255, 255, 0, 0.3);
+  color: #000;
+}
+
+*::selection {
+  background: rgba(255, 255, 0, 0.3);
+  color: #000;
+}
+
+a::-moz-selection {
+  background: rgba(255, 255, 0, 0.3);
+  color: #0645ad;
+}
+
+a::selection {
+  background: rgba(255, 255, 0, 0.3);
+  color: #0645ad;
+}
+
+p {
+  margin: 0 0;
+}
+
+img {
+  max-width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #111;
+  line-height: 125%;
+  margin-top: 1em;
+  font-weight: normal;
+}
+
+h4, h5, h6 {
+  font-weight: bold;
+}
+
+h1 {
+  font-size: 2.5em;
+}
+
+h2 {
+  font-size: 2em;
+}
+
+h3 {
+  font-size: 1.5em;
+}
+
+h4 {
+  font-size: 1.2em;
+}
+
+h5 {
+  font-size: 1em;
+}
+
+h6 {
+  font-size: 0.9em;
+}
+
+blockquote {
+  color: #666666;
+  margin: 0;
+  padding-left: 3em;
+  border-left: 0.5em #EEE solid;
+}
+
+hr {
+  display: block;
+  height: 2px;
+  border: 0;
+  border-top: 1px solid #aaa;
+  border-bottom: 1px solid #eee;
+  margin: 1em 0;
+  padding: 0;
+}
+
+pre, code, kbd, samp {
+  color: #000;
+  font-family: monospace, monospace;
+  _font-family: 'courier new', monospace;
+  font-size: 0.98em;
+}
+
+pre {
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+b, strong {
+  font-weight: bold;
+}
+
+dfn {
+  font-style: italic;
+}
+
+ins {
+  background: #ff9;
+  color: #000;
+  text-decoration: none;
+}
+
+mark {
+  background: #ff0;
+  color: #000;
+  font-style: italic;
+  font-weight: bold;
+}
+
+sub, sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sup {
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+ul, ol {
+  margin: 1em 0;
+  padding: 0 0 0 2em;
+}
+
+li p:last-child {
+  margin-bottom: 0;
+}
+
+ul ul, ol ol {
+  margin: .3em 0;
+}
+
+dl {
+  margin-bottom: 1em;
+}
+
+dt {
+  font-weight: bold;
+  margin-bottom: .8em;
+}
+
+dd {
+  margin: 0 0 .8em 2em;
+}
+
+dd:last-child {
+  margin-bottom: 0;
+}
+
+img {
+  border: 0;
+  -ms-interpolation-mode: bicubic;
+  vertical-align: middle;
+}
+
+figure {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+figure img {
+  border: none;
+  margin: 0 auto;
+}
+
+figcaption {
+  font-size: 0.8em;
+  font-style: italic;
+  margin: 0 0 .8em;
+}
+
+table {
+  border-bottom: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+  border-spacing: 0;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table th, table caption {
+  padding: .2em 1em;
+  background-color: #eee;
+  border-top: 1px solid #ddd;
+  border-left: 1px solid #ddd;
+}
+
+table td {
+  padding: .2em 1em;
+  border-top: 1px solid #ddd;
+  border-left: 1px solid #ddd;
+  vertical-align: top;
+}
+
+.author {
+  font-size: 1.2em;
+  text-align: center;
+}
+
+@media only screen and (min-width: 480px) {
+  body {
+    font-size: 14px;
+  }
+}
+@media only screen and (min-width: 768px) {
+  body {
+    font-size: 16px;
+  }
+}
+@media print {
+  * {
+    background: transparent !important;
+    color: black !important;
+    filter: none !important;
+    -ms-filter: none !important;
+  }
+
+  body {
+    font-size: 12pt;
+    max-width: 100%;
+  }
+
+  a, a:visited {
+    text-decoration: underline;
+  }
+
+  hr {
+    height: 1px;
+    border: 0;
+    border-bottom: 1px solid black;
+  }
+
+  a[href]:after {
+    content: " (" attr(href) ")";
+  }
+
+  abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+
+  .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after {
+    content: "";
+  }
+
+  pre, blockquote {
+    border: 1px solid #999;
+    padding-right: 1em;
+    page-break-inside: avoid;
+  }
+
+  tr, img {
+    page-break-inside: avoid;
+  }
+
+  img {
+    max-width: 100% !important;
+  }
+
+  @page :left {
+    margin: 15mm 20mm 15mm 10mm;
+}
+
+  @page :right {
+    margin: 15mm 10mm 15mm 20mm;
+}
+
+  p, h2, h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  h2, h3 {
+    page-break-after: avoid;
+  }
+}
+</style>
+  </head>
+  <body>
+    <div id="toc">
+      <div id="toc_header">Contents</div>
+      <div class="indexindent_1">
+        <a href="#0"> Levi</a>
+      </div>
+      <div class="indexindent_2">
+        <a href="#1"> Spells</a>
+      </div>
+      <div class="indexindent_2">
+        <a href="#2"> Feats</a>
+      </div>
+      <div class="indexindent_2">
+        <a href="#3"> Items</a>
+      </div>
+    </div>
+    <div id="container">
+      <div class="VLayout">
+        <div class="entry">
+          <h1 id="0"> Levi</h1>
+        </div>
+        <div class="HLayout">
+          <div class="entry">
+            <table>
+              <caption>
+                <b>Skills</b>
+              </caption>
+              <tr>
+                <th>Name</th>
+                <th>Bonus</th>
+              </tr>
+              <tr>
+                <td align="right">
+                  <b>Acrobatics</b>
+                </td>
+                <td align="center">1</td>
+              </tr>
+              <tr>
+                <td align="right">
+                  <b>Appraise</b>
+                </td>
+                <td align="center">0</td>
+              </tr>
+              <tr>
+                <td align="right">
+                  <b>Bluff</b>
+                </td>
+                <td align="center">9</td>
+              </tr>
+              <tr>
+                <td align="right">
+                  <b>Climb</b>
+                </td>
+                <td align="center">2</td>
+              </tr>
+              <tr>
+                <td align="right">
+                  <b>Craft</b>
+                </td>
+                <td align="center">0</td>
+              </tr>
+              <tr>
+                <td align="right">
+                  <b>Diplomacy</b>
+                </td>
+                <td align="center">5</td>
+              </tr>
+              <tr>
+                <td align="right">
+                  <b>Disable device</b>
+                </td>
+                <td align="center">1</td>
+              </tr>
+              <tr>
+                <td align="right">
+                  <b>Disguise</b>
+                </td>
+                <td align="center">5</td>
+              </tr>
+              <tr>
+                <td align="right">
+                  <b>Escape artist</b>
+                </td>
+                <td align="center">1</td>
+              </tr>
+              <tr>
+                <td align="right">
+                  <b>Fly</b>
+                </td>
+                <td align="center">7</td>
+              </tr>
+              <tr>
+                <td align="right">
+                  <b>Heal</b>
+                </td>
+                <td align="center">1</td>
+              </tr>
+              <tr>
+                <td align="right">
+                  <b>Intimidate</b>
+                </td>
+                <td align="center">9</td>
+              </tr>
+              <tr>
+                <td align="right">
+                  <b>Knowledge (arcana)</b>
+                </td>
+                <td align="center">8</td>
+              </tr>
+              <tr>
+                <td align="right">
+                  <b>Knowledge (planes)</b>
+                </td>
+                <td align="center">4</td>
+              </tr>
+              <tr>
+                <td align="right">
+                  <b>Linguistics</b>
+                </td>
+                <td align="center">1</td>
+              </tr>
+              <tr>
+                <td align="right">
+                  <b>Perception</b>
+                </td>
+                <td align="center">10</td>
+              </tr>
+              <tr>
+                <td align="right">
+                  <b>Perform</b>
+                </td>
+                <td align="center">5</td>
+              </tr>
+              <tr>
+                <td align="right">
+                  <b>Ride</b>
+                </td>
+                <td align="center">1</td>
+              </tr>
+              <tr>
+                <td align="right">
+                  <b>Sense motive</b>
+                </td>
+                <td align="center">1</td>
+              </tr>
+              <tr>
+                <td align="right">
+                  <b>Spellcraft</b>
+                </td>
+                <td align="center">6</td>
+              </tr>
+              <tr>
+                <td align="right">
+                  <b>Stealth</b>
+                </td>
+                <td align="center">1</td>
+              </tr>
+              <tr>
+                <td align="right">
+                  <b>Survival</b>
+                </td>
+                <td align="center">1</td>
+              </tr>
+              <tr>
+                <td align="right">
+                  <b>Swim</b>
+                </td>
+                <td align="center">2</td>
+              </tr>
+              <tr>
+                <td align="right">
+                  <b>Use magic device</b>
+                </td>
+                <td align="center">9</td>
+              </tr>
+            </table>
+          </div>
+          <div class="VLayout">
+            <div class="entry">
+              <table>
+                <caption>
+                  <b>Level</b>
+                </caption>
+                <tr>
+                  <th>Abs</th>
+                  <th> Sorc</th>
+                  <th> DD</th>
+                  <th> Caster</th>
+                </tr>
+                <tr>
+                  <td align="center">6</td>
+                  <td align="center">5</td>
+                  <td align="center">1</td>
+                  <td align="center">5</td>
+                </tr>
+              </table>
+            </div>
+            <div class="entry">
+              <table>
+                <tr>
+                  <th>Ability</th>
+                  <th>Base</th>
+                  <th>Bonus</th>
+                  <th>Final</th>
+                  <th>Mod</th>
+                </tr>
+                <tr>
+                  <td align="center">Str</td>
+                  <td align="center">14</td>
+                  <td align="center">0</td>
+                  <td align="center">14</td>
+                  <td align="center">2</td>
+                </tr>
+                <tr>
+                  <td align="center">Dex</td>
+                  <td align="center">12</td>
+                  <td align="center">0</td>
+                  <td align="center">12</td>
+                  <td align="center">1</td>
+                </tr>
+                <tr>
+                  <td align="center">Con</td>
+                  <td align="center">15</td>
+                  <td align="center">0</td>
+                  <td align="center">15</td>
+                  <td align="center">2</td>
+                </tr>
+                <tr>
+                  <td align="center">Int</td>
+                  <td align="center">10</td>
+                  <td align="center">0</td>
+                  <td align="center">10</td>
+                  <td align="center">0</td>
+                </tr>
+                <tr>
+                  <td align="center">Wis</td>
+                  <td align="center">12</td>
+                  <td align="center">0</td>
+                  <td align="center">12</td>
+                  <td align="center">1</td>
+                </tr>
+                <tr>
+                  <td align="center">Cha</td>
+                  <td align="center">18</td>
+                  <td align="center">2</td>
+                  <td align="center">20</td>
+                  <td align="center">5</td>
+                </tr>
+              </table>
+            </div>
+            <div class="entry">
+              <table>
+                <tr>
+                  <th>Concent.</th>
+                  <th> HP</th>
+                  <th> CMB</th>
+                  <th> CMD</th>
+                  <th> Fort</th>
+                  <th> Ref</th>
+                  <th> Will</th>
+                </tr>
+                <tr>
+                  <td align="center">10</td>
+                  <td align="center">52</td>
+                  <td align="center">4</td>
+                  <td align="center">15</td>
+                  <td align="center">4</td>
+                  <td align="center">2</td>
+                  <td align="center">6</td>
+                </tr>
+              </table>
+            </div>
+            <div class="HLayout">
+              <div class="entry">
+                <table>
+                  <caption>
+                    <b>Spells per day</b>
+                  </caption>
+                  <tr>
+                    <th>1</th>
+                    <th>2</th>
+                    <th>Claws</th>
+                  </tr>
+                  <tr>
+                    <td align="center">8</td>
+                    <td align="center">5</td>
+                    <td align="center">8</td>
+                  </tr>
+                </table>
+              </div>
+              <div class="entry">
+                <table>
+                  <caption>
+                    <b>AC</b>
+                  </caption>
+                  <tr>
+                    <th>Abs</th>
+                    <th>Touch</th>
+                    <th>Flat</th>
+                  </tr>
+                  <tr>
+                    <td align="center">15</td>
+                    <td align="center">12</td>
+                    <td align="center">14</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <div class="entry">
+              <table>
+                <caption>
+                  <b>Natural attacks</b>
+                </caption>
+                <tr>
+                  <th>Weapon</th>
+                  <th>Atk</th>
+                  <th>Dmg</th>
+                </tr>
+                <tr>
+                  <td align="right">2 x Claws (Magic dmg)</td>
+                  <td align="center">5</td>
+                  <td align="center">1d4 + 2</td>
+                </tr>
+              </table>
+            </div>
+            <div class="entry">
+              <p><strong>Languages:</strong> common, draconic<br />
+Spell resistance DC for enemies: 15 +
+Spell-lvl (+ 1 for Evos) </p>
+            </div>
+          </div>
+        </div>
+        <div class="entry">
+          <h2 id="1"> Spells</h2>
+        </div>
+        <div class="entry">
+          <table>
+            <caption>
+              <b>Lvl 0</b>
+            </caption>
+            <tr>
+              <th>Name</th>
+              <th>Effect</th>
+            </tr>
+            <tr>
+              <td align="right">
+                <b>Dancing Lights</b>
+              </td>
+              <td align="left">V,S; 1min 1-4 lights that can freely move. Range: 150 ft</td>
+            </tr>
+            <tr>
+              <td align="right">
+                <b>Detect Magic</b>
+              </td>
+              <td align="left">V,S; Range: 60ft cone; Dur: up to 3 rounds. R1: presence of magic auras; R2: number and power of strongest; R3: strength and location of each aura. DC 15 + spelllvl knowledge arcana check for spell school</td>
+            </tr>
+            <tr>
+              <td align="right">
+                <b>Mage Hand</b>
+              </td>
+              <td align="left">V,S; Range: 35 ; max obj weight: up to 5lbs</td>
+            </tr>
+            <tr>
+              <td align="right">
+                <b>Message</b>
+              </td>
+              <td align="left">V,S,F; Range: 150ft; Duration 50 min</td>
+            </tr>
+            <tr>
+              <td align="right">
+                <b>Prestidigitation</b>
+              </td>
+              <td align="left">V,S; Any sort of magical trick without much power</td>
+            </tr>
+            <tr>
+              <td align="right">
+                <b>Mending</b>
+              </td>
+              <td align="left">V, S; Repair objects for 1d4</td>
+            </tr>
+          </table>
+        </div>
+        <div class="entry">
+          <table>
+            <caption>
+              <b>Lvl 1</b>
+            </caption>
+            <tr>
+              <th>Name</th>
+              <th>Effect</th>
+            </tr>
+            <tr>
+              <td align="right">
+                <b>Burning Hands</b>
+              </td>
+              <td align="left">V,S; Range: 15ft cone; ST: Reflex halves; Dmg: 5d4+5</td>
+            </tr>
+            <tr>
+              <td align="right">
+                <b>Feather Fall</b>
+              </td>
+              <td align="left">V; Range 35;Dur:5; Fallspeed: 60ft/round</td>
+            </tr>
+            <tr>
+              <td align="right">
+                <b>Shield</b>
+              </td>
+              <td align="left">V,S; Dur: 5min; negates magic missile; +4AC (shield bonus (also vs touch))</td>
+            </tr>
+            <tr>
+              <td align="right">
+                <b>Mage Armor</b>
+              </td>
+              <td align="left">V,S,F; Dur: 5h; +4AC (armor bonus (also vs touch))</td>
+            </tr>
+            <tr>
+              <td align="right">
+                <b>Magic Missile</b>
+              </td>
+              <td align="left">'V, S, 150ft. Dmg 1d4+1/missile; 3 missiles. Hits ALWAY.</td>
+            </tr>
+          </table>
+        </div>
+        <div class="entry">
+          <table>
+            <caption>
+              <b>Lvl 2</b>
+            </caption>
+            <tr>
+              <th>Name</th>
+              <th>Effect</th>
+            </tr>
+            <tr>
+              <td align="right">
+                <b>Flaming Sphere</b>
+              </td>
+              <td align="left">V,S; d=5ft;Speed 30ft;Reflex negates; dmg: 3d6+3; Range: 150; Duration: 1 round per level; moving the sphere is a movement action for the caster.</td>
+            </tr>
+            <tr>
+              <td align="right">
+                <b>Resist Energy</b>
+              </td>
+              <td align="left">V, S, DF; duration: 50min. Resist 10 vs chosen energy type</td>
+            </tr>
+            <tr>
+              <td align="right">
+                <b>Pyrotechnics</b>
+              </td>
+              <td align="left">V,S, M; dur: 1d4+1 rounds; range: 400ft + 40/lvl. Turns a fire into a firework or a smoke cloud.  *Firework*: Creatures within 120ft and direct line of sight become blinded. (Will negates, Spell resistance negates) *SmokeCloud*: dur: 5 rounds.All sight (even darkvision) is negated. All within cloud take -4str and -4 dex. Duration starts after leaving the cloud. Fortitude negates, Spellresistance doesn't apply</td>
+            </tr>
+          </table>
+        </div>
+        <div class="entry">
+          <h2 id="2"> Feats</h2>
+        </div>
+        <div class="entry">
+          <table>
+            <tr>
+              <th>Name</th>
+              <th>Bonus</th>
+            </tr>
+            <tr>
+              <td align="right">
+                <b>Combat Casting</b>
+              </td>
+              <td align="left">+4 on concentration checks while casting defensively or grappled</td>
+            </tr>
+            <tr>
+              <td align="right">
+                <b>Eschew Materials</b>
+              </td>
+              <td align="left">Don't need material components worth less than 1gp</td>
+            </tr>
+            <tr>
+              <td align="right">
+                <b>Spellfocus (Evo)</b>
+              </td>
+              <td align="left">+1 DC on saving throws vs my evocations</td>
+            </tr>
+            <tr>
+              <td align="right">
+                <b>Toughness</b>
+              </td>
+              <td align="left">+1 HP per lvl</td>
+            </tr>
+            <tr>
+              <td align="right">
+                <b>Weapon Focus Natural Weapons</b>
+              </td>
+              <td align="left">+1 on attack rolls with natural weapons</td>
+            </tr>
+            <tr>
+              <td align="right">
+                <b>Skilled</b>
+              </td>
+              <td align="left">HUmans get one extra skillpoint per level</td>
+            </tr>
+            <tr>
+              <td align="right">
+                <b>Claws</b>
+              </td>
+              <td align="left">Can grow claws</td>
+            </tr>
+            <tr>
+              <td align="right">
+                <b>Bloodline Arcana</b>
+              </td>
+              <td align="left">+1 dmg per die for firespells</td>
+            </tr>
+            <tr>
+              <td align="right">
+                <b>Dragon Resistance</b>
+              </td>
+              <td align="left">+1 Natural armor; resist fire 5</td>
+            </tr>
+          </table>
+        </div>
+        <div class="entry">
+          <h2 id="3"> Items</h2>
+        </div>
+        <div class="entry">
+          <table>
+            <tr>
+              <th>Name</th>
+              <th>Bonus</th>
+            </tr>
+            <tr>
+              <td align="right">
+                <b>Insect Helmet</b>
+              </td>
+              <td align="left">+1AC that stacks with mage armor</td>
+            </tr>
+            <tr>
+              <td align="right">
+                <b>Ring of Protection</b>
+              </td>
+              <td align="left">+1 Deflection Bonus</td>
+            </tr>
+            <tr>
+              <td align="right">
+                <b>Charisma Headband</b>
+              </td>
+              <td align="left">+2 Charisma</td>
+            </tr>
+            <tr>
+              <td align="right">
+                <b>Boots of vaulting</b>
+              </td>
+              <td align="left">Ignore an additional 10ft of falling distance when using acrobatics. Once per round as Free action gain a +10 bonus to jump. The jump is treated as if having a running start. +10 bonus on acrobatics check to avoid AOO after landing.</td>
+            </tr>
+            <tr>
+              <td align="right">
+                <b>Shimmerrobe</b>
+              </td>
+              <td align="left">Delay 50% of all dmg taken to the end of my next turn</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
