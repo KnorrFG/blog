@@ -52,7 +52,7 @@ def dist_path(dist_dir, path: Path):
     if path.is_file() and path.name in ("index.html",
             "post_snippet_template.html"):
         render_index(dist_dir)
-    elif path.is_dir():
+    elif path.is_dir() and not path.name == ".git":
         shutil.copytree(path, dist_dir/path, dirs_exist_ok=True)
     elif path.name.endswith(".css"):
         shutil.copy(path, dist_dir / path)

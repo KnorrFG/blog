@@ -29,6 +29,12 @@ img {
     font-size: 40px;
 }
 
+@-moz-document url-prefix() {
+    h1.heading {
+        padding-top: 8px;
+    }
+}
+
 #heading img {
     padding-right: 10px;
     vertical-align: middle;
