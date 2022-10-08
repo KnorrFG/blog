@@ -8,7 +8,6 @@ import shutil
 import time
 import datetime as dt
 import markdown as md
-import mdx_mathjax
 
 files_to_watch = [
     Path("index.html"), 
@@ -126,7 +125,7 @@ def parse_post(s: str, link):
 
 
 def md_2_html(s):
-    return md.markdown(s, extensions=["extra", "codehilite", "mdx_mathjax"])
+    return md.markdown(s, extensions=["extra", "codehilite", "mdx_math"])
 
 
 def make_dist(dist_dir: Path):
@@ -136,7 +135,7 @@ def make_dist(dist_dir: Path):
     render_index(dist_dir)
 
     for path in Path().iterdir():
-        if path.is_dir():
+        if path.is_dir() and not path.name.startswith('.'):
             shutil.copytree(path, dist_dir/path, dirs_exist_ok=True)
         if path.is_file() and path.suffix == ".css":
             shutil.copy(path, dist_dir / path)

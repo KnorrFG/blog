@@ -1,0 +1,41 @@
+{
+    "_meta": {
+        "hash": {
+            "sha256": "4651440f1a0bc4abc408b5adb60dfc1856cb2d622f2149662435ec1d727d50b2"
+        },
+        "pipfile-spec": 6,
+        "requires": {
+            "python_version": "3.10"
+        },
+        "sources": [
+            {
+                "name": "pypi",
+                "url": "https://pypi.org/simple",
+                "verify_ssl": true
+            }
+        ]
+    },
+    "default": {
+        "markdown": {
+            "hashes": [
+                "sha256:08fb8465cffd03d10b9dd34a5c3fea908e20391a2a90b88d66362cb05beed186",
+                "sha256:3b809086bb6efad416156e00a0da66fe47618a5d6918dd688f53f40c8e4cfeff"
+            ],
+            "index": "pypi",
+            "version": "==3.4.1"
+        },
+        "pygments": {
+            "git": "https://github.com/pygments/pygments",
+            "ref": "4064ca893a4c6fd1bd070b8e8f6339b6c345aabf"
+        },
+        "python-markdown-math": {
+            "hashes": [
+                "sha256:8564212af679fc18d53f38681f16080fcd3d186073f23825c7ce86fadd3e3635",
+                "sha256:c685249d84b5b697e9114d7beb352bd8ca2e07fd268fd4057ffca888c14641e5"
+            ],
+            "index": "pypi",
+            "version": "==0.8"
+        }
+    },
+    "develop": {}
+}

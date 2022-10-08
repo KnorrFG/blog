@@ -1,0 +1,14 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+markdown = "*"
+python-markdown-math = "*"
+pygments = {git = "https://github.com/pygments/pygments"}
+
+[dev-packages]
+
+[requires]
+python_version = "3.10"
