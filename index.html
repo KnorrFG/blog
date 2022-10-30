@@ -1,133 +1,51 @@
-<!DOCTYPE htmlj
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Felix' Blog</title>
-        <meta name="description" content="A blog, mostly about programming">
-        <meta name="keywords" content="Programming, Rust, C, Python">
-        <meta name="author" content="Felix Knorr">
-        <link rel="stylesheet" href="/common.css">
-        <link rel="stylesheet" href="/index.css">
-        <link rel="stylesheet" href="/code.css">
-        <link rel="icon" href="/assets/logo.png" type="image/png">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="google-site-verification" content="nPdJMJTDyxfD2nSz55VURwJWrAb-Pv1DH0EEWvUxFlI" />
-        <script
-                src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/startup.js"
-                integrity="sha512-LZZ88buOWCaSouKg9UNiW3N/vhBCprp0tpG9uNp+r6maXLDeBddAaqTmDduadI+WghoGaNlZG4NgCX0Xsxlfxg=="
-                crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    </head>
-    <body class="body_dims with_bg">
-        <div class="body_dims" id="heading">
-            <img class="heading" src="/assets/logo.png" alt="Blog Logo" width="100">
-            <h1 class="heading">Felix Blog</h1>
-            <hr id='headinghr'> 
-        </div>
+<!DOCTYPE htmlj <html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Felix' Blog</title>
+  <meta name="description" content="A blog, mostly about programming">
+  <meta name="keywords" content="Programming, Rust, C, Python">
+  <meta name="author" content="Felix Knorr">
+  <link rel="stylesheet" href="/common.css">
+  <link rel="stylesheet" href="/index.css">
+  <link rel="stylesheet" href="/code.css">
+  <link rel="icon" href="/assets/logo.png" type="image/png">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="google-site-verification" content="nPdJMJTDyxfD2nSz55VURwJWrAb-Pv1DH0EEWvUxFlI" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/startup.js"
+    integrity="sha512-LZZ88buOWCaSouKg9UNiW3N/vhBCprp0tpG9uNp+r6maXLDeBddAaqTmDduadI+WghoGaNlZG4NgCX0Xsxlfxg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body class="body_dims with_bg">
+  <div class="body_dims" id="heading">
+    <img class="heading" src="/assets/logo.png" alt="Blog Logo" width="100">
+    <h1 class="heading">Felix Blog</h1>
+    <hr id='headinghr'>
+  </div>
 
 
-        <div id="container">
-            <div id="about">
-                <h2>About me</h2>
-                <p>
-                My name is Felix, currently I'm working as software developer for 
-                <a href="https://neuroloop.de/">neuroloop</a>
-                </p>
-                <p>
-                I'm a Computer Science and programming enthusiast (and a huge nerd in many
-                other regards). Here you'll find my Blog, and my projects, and other
-                references. You can also find me on 
-                <a href="https://github.com/KnorrFG">Github</a> and 
-                <a href="https://www.linkedin.com/in/felix-knorr-197453213/"> 
-                    LinkedIn</a>, or you can send me a mail: <span
-                    id="mailaddr">please enable js to see the mail address</span>
-                </p>
+  <p id="welcome_p"> Welcome to my blog, where I write about programming (mostly)
+    <br>
+    and other nerdy stuff (sometimes).
+    <br>
+    <a href="/about_me.html">Here you can find some infos about me</a>
+  </p>
 
-            </div>
+  <div id="posts">
+    {articles}
+  </div>
 
-            <img src="/assets/portrait.png" alt="Felix' Portrait", 
-                id='portrait'>
+  <script>
+    cmp1 = [4, 9, 7, 8, 4, 0, 5, 2, 1, 8, 5, 10, 10, 5, 10, 1, 4, 1]
+    cmp2 = [111, 103, 104, 122, 118, 46, 99, 103, 109, 97, 125, 74, 109, 104, 114, 47, 96, 100]
+    mail = cmp1
+    for (let i = 0; i < cmp1.length; ++i) {
+      mail[i] = String.fromCharCode(cmp1[i] ^ cmp2[i]);
+    }
+    ms = document.getElementById('mailaddr')
+    ms.innerHTML = mail.join("")
+  </script>
+</body>
 
-            <div id="projects">
-                <h2>Opensource Projects</h2>
-
-                 
-                <p>
-                <b>Pyparadigm</b> is a Python library which allows to
-                arrange and display visual stimuli and react to user-input
-                with minimal amounts of source code in a declarative
-                manner.<br>
-                <a href="https://github.com/knorrfg/pyparadigm">GitHub</a>
-                <a href="https://pyparadigm.readthedocs.org">Documentation</a>
-                </p>
-
-                <p>
-                <b>Datasheet</b> is a python library which easily generates
-                HTML pages containing Markdown text, pandas tables,
-                matplotlib figures and nifti images.<br>
-
-                <a href="https://github.com/knorrfg/datasheet">GitHub</a>
-                <a href="https://datasheet.readthedocs.org">Documentation</a>
-                </p>
-
-
-
-                <p><b>Markdown Note</b> is a small command line utility to
-                manage notes. It can be configured to use any editor and notes
-                can be viewed as html using a browser  <br>
-                <a href="https://github.com/KnorrFG/markdown_note">GitHub</a>
-                <a href="/posts/2021-04-28-mdn.html">Article</a>
-                </p>
-
-                
-            </div>
-            <div id="publications">
-                <h2>Publications</h2>
-                <p>
-                I used to do a PhD, which I didn't finish, as I did it in
-                Neuro-Psychology, and the longer it was going on, the more I realized,
-                that this wasn't lining up with my interests. However, I produced a few
-                publications in that time:
-                </p>
-
-
-                <p>
-                    <a href="https://www.frontiersin.org/articles/10.3389/fninf.2019.00059/full">
-                        PyParadigm—A Python Library to Build Screens in a
-                        Declarative Way </a> <br>
-                    <span class="authors">Knorr FG, Petzold J, Marxen M.</span> <br>
-                    Frontiers in Neuroinformatics 2019
-                </p>
-
-
-                <p>
-                    <a href="https://www.sciencedirect.com/science/article/pii/S105381192030121X">
-                        A comparison of fMRI and behavioral models for
-                        predicting inter-temporal choices </a><br>
-                    <span class="authors"> Felix G. Knorr, Philipp T. Neukam, Juliane H. Fröhner, Holger
-                        Mohr, Michael N.Smolka, Michael Marxen</span><br>
-                    NeuroImage 2020
-                </p>
-                    
-
-            </div>
-        </div>
-        
-        <hr>
-        <h1 id="blogh2">Blog Posts</h1>
-
-        <div id="posts">
-            {articles}
-        </div>
-
-        <script>
-            cmp1 = [4, 9, 7, 8, 4, 0, 5, 2, 1, 8, 5, 10, 10, 5, 10, 1, 4, 1]
-            cmp2 = [111, 103, 104, 122, 118, 46, 99, 103, 109, 97, 125, 74, 109, 104, 114, 47, 96, 100]
-            mail = cmp1
-            for (let i = 0; i < cmp1.length; ++i) {
-                mail[i] = String.fromCharCode(cmp1[i] ^ cmp2[i]);
-            }
-            ms = document.getElementById('mailaddr')
-            ms.innerHTML = mail.join("")
-        </script>
-    </body>
 </html>

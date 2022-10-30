@@ -10,6 +10,13 @@ body {
     padding-left: 0;
 }
 
+#welcome_p {
+    text-align: center;
+    margin: auto;    
+    font-style: italic;
+    margin-top: 20px;
+}
+
 @media all and (min-width: 50em) {
     #container {
         display: grid;

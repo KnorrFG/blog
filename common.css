@@ -5,6 +5,14 @@ body {
     font-family: "Helvetica";
 }
 
+#heading h1 {
+    margin: 10px;
+}
+
+#heading a {
+    text-align: right;
+}
+
 .with_bg {
     background: #FEFEFE;
 }

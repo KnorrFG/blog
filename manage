@@ -11,6 +11,7 @@ import markdown as md
 
 files_to_watch = [
     Path("index.html"), 
+    Path("about_me.html"), 
     Path("post_snippet_template.html"), 
     Path("assets"),
     Path("post_template.html")] \
@@ -53,7 +54,7 @@ def dist_path(dist_dir, path: Path):
         render_index(dist_dir)
     elif path.is_dir() and not path.name == ".git":
         shutil.copytree(path, dist_dir/path, dirs_exist_ok=True)
-    elif path.name.endswith(".css"):
+    elif path.name.endswith(".css") or path.name == "about_me.about_me.html":
         shutil.copy(path, dist_dir / path)
     elif path.name.endswith(".md") :
         render_index(dist_dir)
@@ -99,7 +100,8 @@ def parse_post(s: str, link):
     keys = "title excerpt_sep excerpt categories tags".split()
     result = {k: None for k in keys}
     for line in header:
-        match [s.strip() for s in line.split(':')]:
+        [key, _, value] = line.partition(":")
+        match [key.strip(), value.strip()]:
             case ['title', t]:
                 result["title"] = t
             case ['excerpt_separator', e]:
@@ -137,7 +139,7 @@ def make_dist(dist_dir: Path):
     for path in Path().iterdir():
         if path.is_dir() and not path.name.startswith('.'):
             shutil.copytree(path, dist_dir/path, dirs_exist_ok=True)
-        if path.is_file() and path.suffix == ".css":
+        if path.is_file() and path.suffix == ".css" or path.name == "about_me.html":
             shutil.copy(path, dist_dir / path)
 
     for path in Path().glob("posts/*.md"):
