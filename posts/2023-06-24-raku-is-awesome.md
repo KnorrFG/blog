@@ -142,8 +142,8 @@ multi foo(Str $a_str) {
     say "$a_str is a str";
 }
 
-multi foo(Int $a_int) {
-    say "$a_int is an integer";
+multi foo(Int $a_int, Str $a_str) {
+    say "$a_int is an integer, and there's a string too.";
 }
 
 foo 1;
@@ -295,6 +295,9 @@ want to use external libraries for that, and package management for scripting
 languages is terrible.
 
 Thanks for reading :)
+
+**Edit (June 25th 2023):** changed the multiple dispatch code snippet, to actually
+contain multiple dispatch
 
 [^1]: Yes we've got awk for that. Also not super straight forward. Hands
     up: who can write a Bash script involving awk and sed without googling and
