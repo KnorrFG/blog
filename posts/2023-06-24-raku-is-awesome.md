@@ -13,14 +13,14 @@ do I like this language.
 
 <!--more-->
 
-Raku is a scripting language, and I'd describe it as a mix of Bash and Python.
-And that is awesome. Why is that? Because I write a lot of Bash scripts, but
-I'm not super happy with it. They always start harmless, just a couple of
-program invocations, maybe some light string substitution ... it's alright.
-Then you blink once, and suddenly they are 300 lines long, with 50 lines being
-arg-parse code, and the rest feels like it might break any second. Also, bash
-is hard to remember. Writing simple string parsing is NOT straight forward
-[^1], and sometimes nested strings and quoting get extremely painful.
+Raku is a scripting language that mixes Bash and Python, and which addresses a
+bunch of of things I'm not happy about in Bash. Bash scripts always start
+harmlessly, just a couple of program invocations, maybe some light string
+substitution ... it's alright. Then you blink once, and suddenly they are 300
+lines long, with 50 lines being arg-parse code, and the rest feels like it
+might break any second. Also, bash is hard to remember. Writing simple string
+parsing is NOT straight forward [^1], and sometimes nested strings and quoting
+get extremely painful.
 
 Additionally, Bash is not cross-platform. Ok, it is. I admit it. But most of my
 colleagues are Windows users, and somehow, only a single one of them has
@@ -70,7 +70,7 @@ This is especially nice to execute external commands:
 run <<rg 'ls -lah' -g "*.$file_type">>;
 ```
 
-You might have notices that the first example uses `<...>` while the second one
+You might have noticed that the first example uses `<...>` while the second one
 uses `<< ... >>`. The difference is the same as between `'...'` and `"..."`
 strings in Bash (and Raku): The second one allows for interpolation. And it
 supports skipping spaces when splitting the list, if the spaces are between
@@ -78,7 +78,7 @@ quotes.
 
 Raku is not without its quirks. Using `my` (among others) to declare variables,
 and prefixing variable names with symbols (they call it sigils) are two of
-those. I haven't found the quirks of Raku ruining my experience so far though.
+those. So far though, these quirks haven't ruined the experience for me.
 Raku prefixes scalars ("single things") with a `$`, arrays (or lists or
 sequences, "many things") with an `@` and hashes (== dicts / hash maps) with
 `%`. It doesn't hurt to have this kind of visual reminder tbh.
@@ -96,7 +96,7 @@ This is an *any* junction. *all* junctions are written with the `&` instead of
 the `|`. You can also create them from lists using the `any` or `all`
 functions.
 
-No more `if (x == 1 || x == 2 || x == 3)` (god I hate to write that). I have to
+No more `if (x == 1 || x == 2 || x == 3)` (God, I hate to write that). I have to
 admit Python has `if x in { 1, 2, 3 }`, but that is way less flexible. Further
 down this post, I'll show you another example of junction application.
 
@@ -109,7 +109,7 @@ Raku has many ways to define anonymous functions:
 Here, `* + 1` defines a function in the same manner as Scala's `_` operator. The
 star represents the function argument.
 
-Or, if the argument is not on the outmost level: `{ some_func( $_, "fix" ) }`,
+Or, if the argument is not on the outermost level: `{ some_func( $_, "fix" ) }`,
 or, if you want multiple arguments: `{ some_other_func( $^a, $^b, "fix" ) }`.
 In the second example the lambda has two arguments (notice, that they start
 with `$^` instead of just `$`), the order is alphabetical, so `$^a` is the
@@ -186,13 +186,13 @@ Yes, you define a `MAIN` function, and the arg parsing is generated
 automatically from its signature. 
 
 You can even put a check on the value into it (look at the where clause in 3rd
-line). The `:` in `Int :$length = 24` makes `$length` named argument, which is
+line). The `:` in `Int :$length = 24` makes `$length` a named argument, which is
 the reason it is parsed as option.
 
 ### No imports
 
 You might have missed it, but all of this works without any imports. When was
-the last time you wrote a python script with less than 3 imports? This might
+the last time you wrote a Python script with less than 3 imports? This might
 not seem significant, but if you take together the fact that raku is generally
 very concise with not having to import stuff from the stdlib, you end up with scripts that
 are less than half the size of their Python equivalent, especially since it's
@@ -200,10 +200,10 @@ absolutely not uncommon to have 10+ imports in Python.
  
 ## An Example
 
-Those were all small, out of context examples. So I thought, I should at least
+Those were all small, out of context examples. So I thought I should at least
 show you one real world script. I have a script that deletes all git branches
 which have already been merged, and are safe to delete. That started out as a
-Python script. Then became a Ruby script, and now a Raku script. 
+Python script. Then it became a Ruby script, and now a Raku script. 
 What it does is: it checks if the current branch is main or master, and
 switches to it if not. Then it calls `git branch -d` on each branch (which will
 simply not delete the branch, if it is not merged). This is the script:
@@ -263,7 +263,7 @@ And there was no easy way to create structs/records.
 Additionally, Perl has this reputation of being a "write once" language,
 because perl code became unreadable very quickly (allegedly). You can
 definitely write unreadable code in Raku. Easily. Especially when you abuse its
-ability to leave out parenthesis to the fullest. However, you can also write
+ability to leave out parentheses to the fullest. However, you can also write
 unreadable code in every other programming language. It's your responsibility
 as the programmer to not do that. I think one more reason for this reputation
 is the fact that, at the time when Perl was heavily utilized for backends, it
@@ -296,8 +296,11 @@ languages is terrible.
 
 Thanks for reading :)
 
-**Edit (June 25th 2023):** changed the multiple dispatch code snippet, to actually
-contain multiple dispatch
+**Edit (June 25th 2023):** 
+
+- Changed the multiple dispatch code snippet to actually contain multiple
+  dispatch
+- Fixed minor spelling and grammar mistakes
 
 [^1]: Yes we've got awk for that. Also not super straight forward. Hands
     up: who can write a Bash script involving awk and sed without googling and
