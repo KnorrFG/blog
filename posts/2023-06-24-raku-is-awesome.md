@@ -146,7 +146,7 @@ multi foo(Int $a_int, Str $a_str) {
     say "$a_int is an integer, and there's a string too.";
 }
 
-foo 1;
+foo 1, "one";
 foo "2";
 ```
 
@@ -296,11 +296,14 @@ languages is terrible.
 
 Thanks for reading :)
 
-**Edit (June 25th 2023):** 
+**Changelog** 
 
-- Changed the multiple dispatch code snippet to actually contain multiple
-  dispatch
-- Fixed minor spelling and grammar mistakes
+- June 25th 2023
+    - Changed the multiple dispatch code snippet to actually contain multiple
+      dispatch
+    - Fixed minor spelling and grammar mistakes
+- June 26th 2023
+    - fixed function calls in the corrected multiple dispatch example.
 
 [^1]: Yes we've got awk for that. Also not super straight forward. Hands
     up: who can write a Bash script involving awk and sed without googling and
