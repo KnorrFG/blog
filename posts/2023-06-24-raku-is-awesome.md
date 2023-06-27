@@ -14,7 +14,7 @@ do I like this language.
 <!--more-->
 
 Raku is a scripting language that mixes Bash and Python, and which addresses a
-bunch of of things I'm not happy about in Bash. Bash scripts always start
+bunch of things I'm not happy about in Bash. Bash scripts always start
 harmlessly, just a couple of program invocations, maybe some light string
 substitution ... it's alright. Then you blink once, and suddenly they are 300
 lines long, with 50 lines being arg-parse code, and the rest feels like it
