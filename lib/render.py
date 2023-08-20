@@ -42,6 +42,7 @@ def _index_body(posts):
         h.div(id="body_container")[
              _head_line(),
             h.p(id="welcome")["Welcome to my blog, where I write about programming (mostly) and other nerdy stuff (sometimes)."],
+            h.a(href="/about_me.html", id="secondary-aboutme")["About Me"],
             h.div(id='cards')[
                 *(_card_index(info["title"], info["link"], info["date"], info["tags"], info["excerpt"])
                     for info in posts.values())
@@ -173,6 +174,9 @@ def css_files():
 
 def _render_index_css():
     return css.render({
+            '#secondary-aboutme': {
+                "display": "none"
+            },
             '#welcome': {
                 "text-align": "center"
             },
@@ -189,6 +193,17 @@ def _render_index_css():
                 "font-size": "100%",
             },
         }) + dedent("""
+            @media all and (max-width: 50em) {
+                #body_container > #secondary-aboutme {
+                    text-decoration: none;
+                    color: dark_brown;
+                    display: block;
+                    text-align: center;
+                    font-weight: bold;
+                    font-size: 18pt;
+                    margin-bottom: 1em;
+                }
+            }
             @media all and (min-width: 50em) {
                 #about-container {
                     display: grid;
@@ -216,12 +231,24 @@ def _render_index_css():
             """)
     
 def _render_common_css():
-    return css.render({
+    return dedent("""
+        @media all and (max-width: 50em) {
+            .card-header .date {
+                display: none;
+            }
+            #head_line > #outer_head_row > #text_row > #about_me {
+                display: none;
+            }
+        }
+        """) + css.render({
         'body': {
             "line-height": "1.4",
             "font-size": "18px !important",
             "background-color": "#f0ebe4",
             "font-family": "Helvetica",
+        },
+        "pre": {
+            "overflow-x": "auto"
         },
         '#body_container': {
             "margin-inline": "auto",
@@ -249,7 +276,7 @@ def _render_common_css():
             "flex-grow": "1"
         },
         '#title': {
-            'font-size': "32pt",
+            'font-size': "30pt",
             'font-weight': "bold",
             'padding-inline': "0.5em"
         },
