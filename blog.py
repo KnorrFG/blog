@@ -19,6 +19,10 @@ def main():
     match sys.argv[1:]:
         case ["serve"]:
             serve()
+        case ["build", path]:
+            dist_dir = Path("/tmp/bloghost")
+            post_infos = parse_posts()
+            make_dist(Path(path), post_infos)
         case _: 
             raise "Invalid argument"
 
