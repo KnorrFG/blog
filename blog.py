@@ -54,7 +54,8 @@ def parse_posts():
     res = {}
     for post in Path().glob("posts/*.md"):
         res.update(parse_post(post.read_text(), post))
-    return res
+    return dict(sorted(res.items(), key=lambda d: int(dt.datetime.timestamp(d[1]["dt"])), 
+                    reverse=True))
 
 
 def make_dist(dist_dir, posts):

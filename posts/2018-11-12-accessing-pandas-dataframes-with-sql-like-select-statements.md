@@ -1,7 +1,7 @@
 --- 
 title: Accessing pandas DataFrame using SQL-like select statements
 categories: programming
-tags: python pandas ast
+tags: Python, Pandas, Ast
 permalink: /blog/pandas_select.html
 excerpt_separator: <!--more-->
 --- 

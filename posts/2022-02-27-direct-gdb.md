@@ -1,7 +1,7 @@
 --- 
 title: Debugging with GDB
 categories: programming
-tags: c gdb
+tags: C, GDB
 permalink: /blog/using_gdb_directly.html
 excerpt_separator: <!--more-->
 ---

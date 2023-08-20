@@ -1,7 +1,7 @@
 --- 
 title: The Little Joys of Code: Proc Macros
 categories: programming
-tags: rust, macros
+tags: Rust, Macros
 permalink: /blog/proc_macros.html
 excerpt_separator: <!--more-->
 ---

@@ -1,7 +1,7 @@
 --- 
 title: How to code basic psychological experiments with Python quickly
 categories: programming 
-tags: python pyparadigm
+tags: Python, Pyparadigm
 permalink: /blog/basic_paradigm.html
 excerpt_separator: <!--more-->
 --- 

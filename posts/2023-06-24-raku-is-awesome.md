@@ -1,7 +1,7 @@
 --- 
 title: Raku is pretty damn Cool
 categories: programming
-tags: raku
+tags: Raku
 excerpt_separator: <!--more-->
 --- 
 

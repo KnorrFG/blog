@@ -1,7 +1,7 @@
 --- 
 title: How well can an SVM deal with noise and small samples?
 categories: MachineLearning 
-tags: python scikit-learn
+tags: Python, Scikit-Learn
 excerpt_separator: <!--more-->
 permalink: /blog/svms_and_noise.html
 --- 

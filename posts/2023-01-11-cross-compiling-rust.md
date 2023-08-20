@@ -1,7 +1,7 @@
 --- 
 title: Rust Cross-compilation pitfalls
 categories: programming
-tags: macros, cross-compiling
+tags: Macros, Cross-Compiling
 permalink: /blog/pkg-conf-cross-compiling.html
 excerpt_separator: <!--more-->
 ---

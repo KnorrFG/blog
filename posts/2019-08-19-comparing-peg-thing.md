@@ -1,7 +1,7 @@
 --- 
 title: A comparison of Peg-Thing written in Clojure, Python and functional Python 
 categories: programming 
-tags: python clojure
+tags: Python, Clojure
 permalink: /blog/pegthing.html
 excerpt_separator: <!--more-->
 ---
