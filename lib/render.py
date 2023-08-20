@@ -175,7 +175,8 @@ def css_files():
 def _render_index_css():
     return css.render({
             '#secondary-aboutme': {
-                "display": "none"
+                "display": "none",
+                "color": dark_brown
             },
             '#welcome': {
                 "text-align": "center"
