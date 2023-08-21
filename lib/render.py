@@ -18,6 +18,17 @@ def index(posts):
     return f"<!DOCTYPE html>{html}"
 
 
+def redirect_page(link):
+    html = h.html[
+        h.head[
+            s.meta(http_equiv="Refresh", content=f"0; url='../{link}'")
+        ],
+        h.body[
+            f"redirecting to: {link}"
+        ]
+    ]
+    return f"<!DOCTYPE html>{html}"
+    
 def _index_header():
     return h.head[
         s.meta(charset="UTF-8"),
@@ -333,8 +344,6 @@ def _render_common_css():
         'a.header-a:not(:hover)': {"text-decoration": "none"},
         'a.header-a:hover': {"text-decoration-color": light_brown},
         'a.title': {
-            "text-decoration": "none",
-            "text-decoration": "none",
             "color": light_brown,
         },
         '.card-content': {

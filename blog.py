@@ -64,6 +64,7 @@ def parse_posts():
 
 def make_dist(dist_dir, posts):
     dist_dir.joinpath("posts").mkdir(exist_ok=True, parents=True)
+    dist_dir.joinpath("blog").mkdir(exist_ok=True, parents=True)
     dist_dir.joinpath("index.html").write_text(render.index(posts))
     dist_dir.joinpath("about_me.html").write_text(render.about_me())
     shutil.copytree("assets", dist_dir/"assets", dirs_exist_ok=True)
@@ -78,6 +79,8 @@ def make_dist(dist_dir, posts):
 
 def render_and_write_post(dist_dir, infos):
     dist_dir.joinpath(infos["link"]).write_text(render.post(infos))
+    if "extralink" in infos:
+        dist_dir.joinpath(infos["extralink"].lstrip('/')).write_text(render.redirect_page(infos['link']))
 
 
 def parse_post(s: str, path):
@@ -100,6 +103,8 @@ def parse_post(s: str, path):
                 result['categories'] = c.split()
             case ["tags", t]:
                 result["tags"] = t.split()
+            case ["permalink", link]:
+                result['extralink'] = link
 
     if result['excerpt_sep'] is not None:
         print(path)

@@ -63,6 +63,8 @@ class s(metaclass=hBase):
     def _format_attr(self, name, val):
          if name == 'klass':
              name = 'class'
+         if name == 'http_equiv':
+            name = 'http-equiv'
          return '{}="{}"'.format(name, str(val).replace('"', '\"'))
         
     def _format_attrs(self):
