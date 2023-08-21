@@ -275,11 +275,13 @@ def _render_common_css():
             "display": "flex",
             "align-items": "baseline",
             "margin-bottom": "-1em",
-            'a': {
+            'a:not(:hover)': {
                 "text-decoration": "none",
+            },
+            'a': {
                 "color": dark_brown,
                 "display": "inline-block"
-            },
+            }
         },
         '.spacer': {
             "flex-grow": "1"
@@ -289,9 +291,9 @@ def _render_common_css():
             'font-weight': "bold",
             'padding-inline': "0.5em"
         },
-        '#about_me': {
-            'font-weight': "bold"
-        },
+        '#title:hover': {"text-decoration-color": dark_brown}, 
+        '#about_me': { 'font-weight': "bold" },
+        '#about_me:hover': {"text-decoration-color": dark_brown},
         '.card': {
             'display': 'flex',
             'flex-direction': "column",
