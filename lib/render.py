@@ -29,6 +29,7 @@ def _index_header():
             ("google-site-verification", "nPdJMJTDyxfD2nSz55VURwJWrAb-Pv1DH0EEWvUxFlI"))),
         *(s.link(rel="stylesheet", href=sheet) for sheet in "/common.css /index.css /code.css".split()),
         s.link(rel="icon", href="/assets/logo.png", type="image/png"),
+        h.title["Felix' Blog"],
         h.script(
             src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/startup.js",
             integrity="sha512-LZZ88buOWCaSouKg9UNiW3N/vhBCprp0tpG9uNp+r6maXLDeBddAaqTmDduadI+WghoGaNlZG4NgCX0Xsxlfxg==",
@@ -52,12 +53,14 @@ def _index_body(posts):
 
 def _card_index(title, link, date, tags, content):
     return h.div(klass="card")[
-        h.div(klass="card-header")[
-            h.div(klass="left-half")[
-                h.a(klass="title", href=link)[title],
-                h.p(klass="tags")[*(tags if tags is not None else [])]
-            ],
-            h.p(klass="date")[date]
+        h.a(klass="header-a", href=link)[
+            h.div(klass="card-header")[
+                h.div(klass="left-half")[
+                    h.p(klass="title")[title],
+                    h.p(klass="tags")[*(tags if tags is not None else [])]
+                ],
+                h.p(klass="date")[date]
+            ]
         ],
         *([h.div(klass="card-content")[
             h.p[content]
@@ -251,6 +254,9 @@ def _render_common_css():
         "pre": {
             "overflow-x": "auto"
         },
+        "img": {
+            "max-width": "100%"
+        },
         '#body_container': {
             "margin-inline": "auto",
             "max-width": "50em",
@@ -260,18 +266,20 @@ def _render_common_css():
             "display": "flex",
             "align-items": "center"
         },
-        '#text_row a': {
-            "text-decoration": "none",
-            "color": dark_brown,
-            "display": "inline-block"
+        '#head_line': {
+            "width": "100%",
+            'img': {"display": "inline-block;"}
         },
-        '#head_line': "width: 100%;",
-        '#head_line img': {"display": "inline-block;"},
         '#text_row': {
             "width": "100%",
             "display": "flex",
             "align-items": "baseline",
-            "margin-bottom": "-1em"
+            "margin-bottom": "-1em",
+            'a': {
+                "text-decoration": "none",
+                "color": dark_brown,
+                "display": "inline-block"
+            },
         },
         '.spacer': {
             "flex-grow": "1"
@@ -287,7 +295,7 @@ def _render_common_css():
         '.card': {
             'display': 'flex',
             'flex-direction': "column",
-            'box-shadow': "0.25em 0.25em 0.25em black"
+            'box-shadow': "0.25em 0.25em 0.5em grey"
         },
         '.card-header': {
             "line-height": "1",
@@ -296,34 +304,36 @@ def _render_common_css():
             "color": light_brown,
             "display": "flex",
             "align-items": "center",
-            'padding': '1em'
+            'padding': '1em',
+            '.left-half': {
+                'flex-grow': 1,
+                "display": "flex",
+                "flex-direction": "column",
+                "gap": "0.7em",
+                "width": "100%"
+            },
+            '.title': {
+                "font-weight": "bold",
+                "font-size": "22pt",
+                'padding-right': "2em",
+                "margin": "0"
+            },
+            '.date': {
+                "min-width": "6em",
+                "text-align": "right"
+            },
+            '.tags': {
+                'font-style': "oblique 10deg",
+                "margin": "0",
+                "font-size": "12pt"
+            },
         },
-        '.card-header .left-half': {
-            'flex-grow': 1,
-            "display": "flex",
-            "flex-direction": "column",
-            "gap": "0.7em",
-            "width": "100%"
-        },
-        '.card-header .title': {
-            "font-weight": "bold",
-            "font-size": "22pt",
-            'padding-right': "2em",
-            "margin": "0"
-        },
+        'a.header-a:not(:hover)': {"text-decoration": "none"},
+        'a.header-a:hover': {"text-decoration-color": light_brown},
         'a.title': {
             "text-decoration": "none",
             "text-decoration": "none",
             "color": light_brown,
-        },
-        '.card-header .date': {
-            "min-width": "6em",
-            "text-align": "right"
-        },
-        '.card-header .tags': {
-            'font-style': "oblique 10deg",
-            "margin": "0",
-            "font-size": "12pt"
         },
         '.card-content': {
             "margin-top": "0",
@@ -334,13 +344,13 @@ def _render_common_css():
 
 def post(post):
     html = h.html[
-        _post_header(),
+        _post_header(post),
         _post_body(post)
     ]
     return f"<!DOCTYPE html>{html}"
 
 
-def _post_header():
+def _post_header(post):
     return h.head[
         s.meta(charset="UTF-8"),
         *(s.meta(name=x[0], content=x[1]) for x in (
@@ -351,6 +361,7 @@ def _post_header():
             ("google-site-verification", "nPdJMJTDyxfD2nSz55VURwJWrAb-Pv1DH0EEWvUxFlI"))),
         *(s.link(rel="stylesheet", href=sheet) for sheet in "/common.css /code.css".split()),
         s.link(rel="icon", href="/assets/logo.png", type="image/png"),
+        h.title[f"Felix' Blog - {post['title']}"],
         h.script(
             src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/startup.js",
             integrity="sha512-LZZ88buOWCaSouKg9UNiW3N/vhBCprp0tpG9uNp+r6maXLDeBddAaqTmDduadI+WghoGaNlZG4NgCX0Xsxlfxg==",
