@@ -124,6 +124,11 @@ def _about_body():
                     md2html("""
                         ## Opensource Projects
 
+                        **Dotree** is a small interactive command runner. It wants to be a 
+                        better home for your aliases and bash functions, especially those 
+                        that you don't use that often, and an alternative to just.  
+                        [GitHub](https://github.com/KnorrFG/dotree)
+
                         **Pyparadigm** is a Python library which allows to
                         arrange and display visual stimuli and react to user-input
                         with minimal amounts of source code in a declarative
