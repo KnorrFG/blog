@@ -1,5 +1,5 @@
 --- 
-title: GitHub Actions and CI-Pipelines are a Problem
+title: GitHub Actions are a Problem
 categories: devops
 excerpt_separator: <!--more-->
 ---
