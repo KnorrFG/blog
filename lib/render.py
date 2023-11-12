@@ -81,7 +81,7 @@ def _card_index(title, link, date, tags, content):
 def _head_line():
     return h.div(id="head_line")[
         h.div(id="outer_head_row")[
-            s.img(src='/assets/logo.png', alt="Blog Logo", width="100"),
+            h.a(href="/index.html", id="title")[s.img(src='/assets/logo.png', alt="Blog Logo", width="100")],
             h.div(id="text_row")[
                 h.a(href="/index.html", id="title")["Felix Blog"],
                 h.div(klass="spacer"),
@@ -280,11 +280,15 @@ def _render_common_css():
         '#outer_head_row': {
             "width": "100%",
             "display": "flex",
-            "align-items": "center"
+            "align-items": "center",
         },
         '#head_line': {
             "width": "100%",
-            'img': {"display": "inline-block;"}
+            'img': {
+                  "display": "inline-block",
+                  "margin-top": "0.5em",
+                  "margin-bottom": "-0.25em"
+              }
         },
         '#text_row': {
             "width": "100%",
