@@ -1,0 +1,12 @@
+menu root {
+	s: "start server" - "cd /tmp/bloghost && python -m http.server 8080"
+	b: "start builder" - "pipenv run python blog.py serve"
+	p: "publish" - !"
+		pipenv run python blog.py build /tmp/blog_dist
+		rsync --progress -az --update --delete /tmp/blog_dist/ vserver:apps/homepage/
+	"!
+	c: cmd {
+		vars file
+		"spell check" - "ltex-cli $file"
+	}
+}

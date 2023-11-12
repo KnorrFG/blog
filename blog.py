@@ -46,9 +46,9 @@ def serve():
                 else:
                     post_info = parse_post(file.read_text(), file)
                     post_infos.update(post_info)
-                    post_infos.sort(key=lambda d: int(dt.datetime.timestamp(d["dt"])), 
-                                    reverse=True)
-                    render_and_write_post(dist_dir, post_info)
+                    post_infos = dict(sorted(post_infos.items(), key=lambda d: int(dt.datetime.timestamp(d[1]["dt"])), 
+                                    reverse=True))
+                    render_and_write_post(dist_dir, next(iter(post_info.values())))
                     
                 change_tss[file] = last_updt_new
         time.sleep(0.3)
